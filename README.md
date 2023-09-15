@@ -23,24 +23,25 @@ Al final del proyecto, debes entregar el código fuente de tu programa, incluyen
 
 Rúbrica para Evaluar el Proyecto de Procesamiento Concurrente y Suma de Transacciones Financieras de Departamentos
 
-Funcionalidad y Correctitud (40 puntos)
+## Funcionalidad y Correctitud (40 puntos)
 
 El programa procesa y suma las transacciones de cada archivo correctamente (10 puntos).
 El programa genera correctamente los archivos de resultados con las sumas de las transacciones para cada archivo de entrada (10 puntos).
 El programa suma correctamente las sumas de cada archivo de resultados y guarda el total en "Resultado_global.txt" (10 puntos).
 El programa maneja correctamente las excepciones, especialmente los errores de entrada/salida (10 puntos).
-Concurrencia y Paralelismo (20 puntos)
+## Concurrencia y Paralelismo (20 puntos)
 
 El programa aprovecha adecuadamente la concurrencia y el paralelismo para procesar los archivos (10 puntos).
 El programa gestiona correctamente la sincronización entre los hilos, evitando condiciones de carrera y bloqueos (10 puntos).
-Diseño del Código y Estructura (20 puntos)
+## Diseño del Código y Estructura (20 puntos)
 
 Las clases y métodos están bien organizados y siguen los principios de la programación orientada a objetos (10 puntos).
 El código está limpio, bien comentado y fácil de entender y mantener (10 puntos).
-Pruebas y Robustez (20 puntos)
+## Pruebas y Robustez (20 puntos)
 
 El programa funciona correctamente con varios conjuntos de datos de prueba, incluyendo casos límite (10 puntos).
 El programa es robusto y puede manejar entradas inesperadas y errores de manera elegante (10 puntos).
+
 Cada criterio se calificará de acuerdo con el siguiente sistema de puntuación:
 
 Incompleto / Incorrecto (0 puntos): El código no cumple con el criterio, o la implementación es incorrecta.
