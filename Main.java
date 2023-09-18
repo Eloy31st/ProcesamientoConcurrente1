@@ -1,36 +1,16 @@
-import java.io.File;
-import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         if (args.length == 0) {
-            System.out.println("Uso: java Main <directorios>");
-            System.exit(1);
+            System.out.println("Por favor, proporciona la ruta de los archivos como argumentos.");
+            return;
         }
 
-        for (String directorio : args) {
-            File dir = new File(directorio);
-            if (dir.isDirectory()) {
-                File[] archivos = dir.listFiles();
-                if (archivos != null) {
-                    for (File archivo : archivos) {
-                        if (archivo.isFile()) {
-                            try {
-                                // Ejecutar el procesador para cada archivo como un proceso independiente
-                                ProcessBuilder processBuilder = new ProcessBuilder("java", "ProcesadorContabilidad", archivo.getName());
-                                processBuilder.inheritIO();
-                                Process proceso = processBuilder.start();
-                                proceso.waitFor();
-                            } catch (IOException | InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        Lanzador.lanzarProcesadores(args);
 
-        // Calcular el resultado global después de que todos los procesos hayan terminado
-        Lanzador.calcularResultadoGlobal(args);
+        // Calcular el resultado global
+        long sumaTotal = UtilidadesFicheros.obtenerSumaTransacciones(List.of(args));
+        UtilidadesFicheros.escribirResultado("Resultado_global.txt", sumaTotal);
     }
 }

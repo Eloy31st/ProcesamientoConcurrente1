@@ -1,25 +1,34 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-public class UtilidadesFicheros{
-    public static long sumaTransacciones(String fichero){
-        long suma = 0;
-        try(BufferedReader br = new BufferedReader(new FileReader(fichero))){
-            String linea = br.readLine();
-            while(linea != null){
-                suma += Long.parseLong(linea);
-                linea = br.readLine();
+import java.util.List;
+
+public class UtilidadesFicheros {
+
+    public static long obtenerSumaTransacciones(List<String> archivos) {
+        long sumaTotal = 0;
+
+        for (String archivo : archivos) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    long transactionAmount = Long.parseLong(line);
+                    sumaTotal += transactionAmount;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();     
         }
-        return suma;
+
+        return sumaTotal;
     }
 
-    public static void escribirResultado(String fichero, long result){
-        try(FileWriter fw = new FileWriter(fichero)){
-            fw.write(String.valueOf(result));
+    public static void escribirResultado(String archivo, long resultado) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, true))) {
+            writer.write(String.valueOf(resultado));
+            writer.newLine(); // Agregar una nueva línea para el siguiente resultado
         } catch (IOException e) {
             e.printStackTrace();
         }
