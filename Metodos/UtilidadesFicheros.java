@@ -12,7 +12,7 @@ public class UtilidadesFicheros {
         long sumaTotal = 0;
 
         for (String archivo : archivos) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("Archivos/"+archivo))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     long transactionAmount = Long.parseLong(line);
@@ -27,7 +27,7 @@ public class UtilidadesFicheros {
     }
 
     public static void escribirResultado(String archivo, long resultado) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, false))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Resultados/"+archivo, false))) {
             writer.write(String.valueOf(resultado));
             writer.newLine(); 
         } catch (IOException e) {
