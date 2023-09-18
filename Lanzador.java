@@ -12,7 +12,7 @@ public class Lanzador {
         executorService.shutdown();
 
         while (!executorService.isTerminated()) {
-            // Esperar a que todos los hilos terminen
+            
         }
     }
 }
