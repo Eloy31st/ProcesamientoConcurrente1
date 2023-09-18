@@ -26,7 +26,7 @@ public class UtilidadesFicheros {
     }
 
     public static void escribirResultado(String archivo, long resultado) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, false))) {
             writer.write(String.valueOf(resultado));
             writer.newLine(); 
         } catch (IOException e) {
